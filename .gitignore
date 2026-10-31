@@ -1,0 +1,6 @@
+# files the mod writes in its folder
+factionpower.log
+state.txt
+ledger-*.lua
+ledger-*.lua.*
+debug_cmd.txt
