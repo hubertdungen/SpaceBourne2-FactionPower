@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — 2026-10-31
+
+- After loading a save, the mod follows the live game world (a previous world left in memory could
+  still look valid).
+- **On by default** (the realism set is installed ready to play); Shift+F9 still switches it off.
+- README and Nexus page: links to every mod of the realism set (SB2 HOTAS added); 16:9 cover image.
+
 ## 0.1.0 — 2026-10-31
 
 First release.

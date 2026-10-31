@@ -25,12 +25,20 @@ local LOOKUP_GAP = 10
 local gb, fm, gi
 local nextGB, nextFM, nextGI = 0, 0, 0
 
-function W.seen(gameBuilder) if U.valid(gameBuilder) then gb = gameBuilder end end
+-- A load can leave the previous world in memory (HTR crash findings 2026-10-31), so an old
+-- Game_Builder may still pass IsValid(): the live one always replaces it, and the family
+-- manager is looked up again when the Game_Builder changes.
+function W.seen(gameBuilder)
+    if not U.valid(gameBuilder) then return end
+    if gb ~= nil and U.valid(gb) and gb:GetAddress() == gameBuilder:GetAddress() then return end
+    gb, fm = gameBuilder, nil
+end
 
 -- Cheap path from any live object (a hook's `self`): the player controller holds the
--- Game_Builder (Q1Controller.GameBuilderRef). GetPlayerController(ctx, 0) is instant.
+-- Game_Builder (Q1Controller.GameBuilderRef). GetPlayerController(ctx, 0) is instant, so it
+-- runs on every call: the cache then always follows the current world.
 function W.fromContext(ctx)
-    if U.valid(gb) or ctx == nil then return end
+    if ctx == nil then return end
     pcall(function()
         local pc = U.gameplayStatics():GetPlayerController(ctx, 0)
         if U.valid(pc) then W.seen(pc[G.P.GameBuilderRef]) end

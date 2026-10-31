@@ -2,7 +2,7 @@
   Faction Power (SpaceBourne 2) - USER SETTINGS
   =============================================
   Edit with any text editor, then restart the game. Delete a line to use its default.
-  Off by default: press Shift+F9 in game to switch the mod on (remembered).
+  On by default: press Shift+F9 in game to switch the mod off or on (remembered).
 
   What the mod does (see README.md / DESIGN.md):
     clearing dungeons, selling strategic goods and finishing missions earn your faction
@@ -16,8 +16,8 @@
 ]]
 
 return {
-    -- Master switch. OFF by default.
-    Enabled = false,
+    -- Starting state (Shift+F9 switches it in game; the choice is remembered in state.txt).
+    Enabled = true,
     -- Keys (UE4SS key names). Shared, laptop-safe key plan of the realism set: DESIGN.md
     -- section 8. Only "SHIFT" as a modifier (on foot Ctrl opens the map, Alt crouches).
     -- Never F1, F2, F5 (squad orders), F6 (quick save), F8 (quick load), F10 (bug report), F12.

@@ -1,6 +1,6 @@
 --[[
   Faction Power - your deeds shift the balance of SpaceBourne 2's factions.
-  UE4SS Lua mod. Ships OFF (config.lua Enabled = false); Shift+F9 switches it on.
+  UE4SS Lua mod. On by default (config.lua Enabled); Shift+F9 switches it off/on.
   Tested in game: missions, Faction Power, relations, the dominance line, the key.
   Not yet seen in game: shop sales and dungeon ends (DESIGN.md section 14).
 
@@ -14,13 +14,13 @@
     fp/hooks.lua      safe lazy hook registration (copy of HTR's)
 ]]
 
-local VERSION = "0.1.0"
+local VERSION = "0.1.1"
 
 local U = require("fp.util")
 
 -- Settings -------------------------------------------------------------------
 local DEFAULTS = {
-    Enabled = false,
+    Enabled = true,
     ToggleKey = "F9", ToggleModifiers = { "SHIFT" }, StatusKey = "", StatusModifiers = { "SHIFT" },
     Channels = { FactionPower = true, Influence = true, Relations = true },
     Sources = { Dungeons = true, Sales = true, Commodities = false, Missions = true },

@@ -653,3 +653,12 @@ Procedure as in §14 (saves copied and hashed before; afterwards the test slot a
 
 Not yet seen in game: shop sale toast hook, dungeon door / boss death, the HUD line on screen,
 bounty target faction (not cached yet), commodities (not wired).
+
+## 16. Test results, 0.1.1 (2026-10-31)
+
+User-style install (only `enabled.txt`, no `state.txt`, not in mods.txt): "Faction Power 0.1.1
+loaded, ON". Debug deed before an in-game reload: Power 8963 → 9063; after reloading the test
+slot (Holder → Holder, new Game_Builder address) the deed hit the live world: 8963 → 9063.
+Frames: median 10 ms, p99 22 ms, 0 spikes with the mod; 10 ms / 23 ms without. Saves: 81 files
+byte-identical. Known limit: after an in-session reload the ledger's influence did not roll back
+(second deed +0.92 instead of +1.00) — bookkeeping only, to look at in 0.1.2.

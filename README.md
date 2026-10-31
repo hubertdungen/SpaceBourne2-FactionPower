@@ -7,7 +7,7 @@ operations, stations and houses — comes from your stations and a few story mis
 Contracts, dungeons and trade earn you nothing for it. **Faction Power** changes that, and makes
 the factions of the galaxy notice what you do where you do it.
 
-Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9) · UE4SS Lua mod · works alone or with
+Version 0.1.1 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9) · UE4SS Lua mod · works alone or with
 [Hardcore Tactical Realism](https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism).
 
 ## What it does
@@ -37,7 +37,8 @@ Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9
   (`+225 Faction Power, Xeghan local support +1.1, relation with Xeghan +2 (mission)`), your
   Power counter, your relations, and a **Local support** line in the system's dominance
   breakdown.
-- **Off by default.** Nothing changes until you switch it on.
+- **On as soon as it is installed.** Shift+F9 switches it off (and on again); the choice is
+  remembered.
 
 ## Requirements
 
@@ -47,12 +48,12 @@ Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9
 
 ## Install
 
-1. Download `FactionPower-0.1.0.zip` from the
+1. Download `FactionPower-0.1.1.zip` from the
    [releases](https://github.com/hubertdungen/SpaceBourne2-FactionPower/releases).
 2. Extract it into the game folder (`...\steamapps\common\SpaceBourne 2\`). It adds
    `SB2\Binaries\Win64\Mods\FactionPower\` (the `enabled.txt` inside turns it on).
-3. In game press **Shift+F9** to switch Faction Power on (remembered between sessions).
-   The HUD shows your Power and the balance of the system you are in.
+3. Start the game: Faction Power is on. **Shift+F9** switches it off or on (remembered between
+   sessions); switching on shows your Power and the balance of the system you are in.
 
 Manual install: copy the `FactionPower` folder from this repository into
 `SpaceBourne 2\SB2\Binaries\Win64\Mods\`.
