@@ -106,12 +106,15 @@ the HUD line on screen. Commodity trade is not wired yet.
 | Mod | |
 |---|---|
 | **Hardcore Tactical Realism** — realistic on-foot ballistics and tactical NPC AI | [GitHub](https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism) · [Nexus](https://www.nexusmods.com/spacebourne2/mods/4) · [Steam discussion](https://steamcommunity.com/app/1646850/discussions/0/573805072991123580) |
+| **SB2 HOTAS** | [GitHub](https://github.com/hubertdungen/SpaceBourne2-HOTAS) · [Nexus](https://www.nexusmods.com/spacebourne2/mods/8) |
 | **Split Controls** | [GitHub](https://github.com/hubertdungen/SpaceBourne2-SplitControls) · [Nexus](https://www.nexusmods.com/spacebourne2/mods/5) |
 | **Silent Ops** — realistic stealth | [GitHub](https://github.com/hubertdungen/SpaceBourne2-SilentOps) · [Nexus](https://www.nexusmods.com/spacebourne2/mods/6) |
 | **Gear Without Levels** | [GitHub](https://github.com/hubertdungen/SpaceBourne2-GearWithoutLevels) · [Nexus](https://www.nexusmods.com/spacebourne2/mods/7) |
-| **Tactical Engineering** | planned |
-| **Tactical First Person** | planned |
-| **Faction Power** (this mod) | |
+| **Faction Power** (this mod) | [Nexus](https://www.nexusmods.com/spacebourne2/mods/9) |
+| **Tactical Engineering** (turrets) | coming |
+| **Tactical First Person** | coming |
+
+One installer for the whole set is planned.
 
 ## License
 
