@@ -2,7 +2,7 @@
 
 In vanilla SpaceBourne 2 your faction's [b]Faction Power[/b] — the currency you spend on operations, stations and houses — comes from your stations and a few story missions. Contracts, dungeons and trade earn you nothing for it. [b]Faction Power[/b] changes that, and makes the factions of the galaxy notice what you do where you do it.
 
-Version 0.1.0 · [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]Hardcore Tactical Realism[/url].
+Version 0.1.1 · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]Hardcore Tactical Realism[/url].
 
 [line]
 [size=5][b]What it does[/b][/size]
@@ -17,7 +17,7 @@ Version 0.1.0 · [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower]
     - you sold it weapons → it grows a little stronger there. Selling in a pirate-held system strengthens the pirates, but only slightly.
 [*][b]No grinding.[/b] Repeated sales of the same kind in the same place count for less; at most 2 000 Power per game day (~10 minutes of play); local support is capped at ±25 % of a system's dominance and fades by half in ~5 hours of play; a dungeon in the same system counts again only after 7 game days.
 [*][b]Visible where the game shows it.[/b] A HUD line for every deed that counts (+225 Faction Power, Xeghan local support +1.1, relation with Xeghan +2 (mission)), your Power counter, your relations, and a [b]Local support[/b] line in the system's dominance breakdown.
-[*][b]Off by default.[/b] Nothing changes until you switch it on.
+[*][b]On as soon as it is installed.[/b] Shift+F9 switches it off (and on again); the choice is remembered.
 [/list]
 
 [line]
@@ -32,9 +32,9 @@ Version 0.1.0 · [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower]
 [size=5][b]Install[/b][/size]
 
 [list=1]
-[*]Download FactionPower-0.1.0.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower/releases]releases[/url].
+[*]Download FactionPower-0.1.1.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower/releases]releases[/url].
 [*]Extract it into the game folder (...\steamapps\common\SpaceBourne 2\). It adds SB2\Binaries\Win64\Mods\FactionPower\ (the enabled.txt inside turns it on).
-[*]In game press [b]Shift+F9[/b] to switch Faction Power on (remembered between sessions). The HUD shows your Power and the balance of the system you are in.
+[*]Start the game: Faction Power is on. [b]Shift+F9[/b] switches it off or on (remembered between sessions); switching on shows your Power and the balance of the system you are in.
 [/list]
 
 Manual install: copy the FactionPower folder from this repository into SpaceBourne 2\SB2\Binaries\Win64\Mods\.
@@ -45,7 +45,7 @@ Manual install: copy the FactionPower folder from this repository into SpaceBour
 [size=5][b]Keys[/b][/size]
 
 [list]
-[*][b]Shift+F9[/b] — Faction Power on / off (switching on shows your Power and the local balance)
+[*][b]Shift+F9[/b] — Faction Power off / on (switching on shows your Power and the local balance)
 [/list]
 
 Shift is the only modifier the realism set uses (on foot Ctrl opens the map and Alt crouches), and no mod of the set uses the game's F6 quick save, F8 quick load or F10 bug report. The key can be changed in scripts\config.lua.
@@ -83,13 +83,16 @@ Written from the game's Blueprints but [b]not yet seen in game[/b]: shop sales (
 
 [list]
 [*][b]Hardcore Tactical Realism[/b] — realistic on-foot ballistics and tactical NPC AI: [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/4]Nexus[/url] · [url=https://steamcommunity.com/app/1646850/discussions/0/573805072991123580]Steam discussion[/url]
+[*][b]SB2 HOTAS[/b]: [url=https://github.com/hubertdungen/SpaceBourne2-HOTAS]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/8]Nexus[/url]
 [*][b]Split Controls[/b]: [url=https://github.com/hubertdungen/SpaceBourne2-SplitControls]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/5]Nexus[/url]
 [*][b]Silent Ops[/b] — realistic stealth: [url=https://github.com/hubertdungen/SpaceBourne2-SilentOps]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/6]Nexus[/url]
 [*][b]Gear Without Levels[/b]: [url=https://github.com/hubertdungen/SpaceBourne2-GearWithoutLevels]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/7]Nexus[/url]
-[*][b]Tactical Engineering[/b] — planned
-[*][b]Tactical First Person[/b] — planned
 [*][b]Faction Power[/b] (this mod)
+[*][b]Tactical Engineering[/b] (turrets) — coming
+[*][b]Tactical First Person[/b] — coming
 [/list]
+
+One installer for the whole set is planned.
 
 [line]
 [size=5][b]License[/b][/size]
