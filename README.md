@@ -7,7 +7,7 @@ operations, stations and houses — comes from your stations and a few story mis
 Contracts, dungeons and trade earn you nothing for it. **Faction Power** changes that, and makes
 the factions of the galaxy notice what you do where you do it.
 
-Version 0.1.0 · Nexus Mods page: coming · UE4SS Lua mod · works alone or with
+Version 0.1.0 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9) · UE4SS Lua mod · works alone or with
 [Hardcore Tactical Realism](https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism).
 
 ## What it does
