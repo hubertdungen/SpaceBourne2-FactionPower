@@ -45,7 +45,7 @@ Manual install: copy the FactionPower folder from this repository into SpaceBour
 [size=5][b]Keys[/b][/size]
 
 [list]
-[*][b]Shift+F9[/b] — Faction Power off / on (switching on shows your Power and the local balance)
+[*][b]Shift+F9[/b]: Faction Power on / off (switching on shows your Power and the local balance)
 [/list]
 
 Shift is the only modifier the realism set uses (on foot Ctrl opens the map and Alt crouches), and no mod of the set uses the game's F6 quick save, F8 quick load or F10 bug report. The key can be changed in scripts\config.lua.
@@ -72,27 +72,31 @@ Edit Mods\FactionPower\scripts\config.lua (every line is optional):
 [/list]
 
 [line]
-[size=5][b]Status and known limits[/b][/size]
+[size=5][b]Known limits[/b][/size]
 
-Tested in game (0.1.0): missions through the game's own completion path (a side quest paid 225 Power, +1.1 local support, relation +2; a mail contract was correctly left to vanilla), Faction Power payouts, relations, the dominance line (one line, matching the mod's memory, rebuilt after the game recalculates a system), market saturation, Shift+F9, frame times (no measurable cost, no spikes).
-
-Written from the game's Blueprints but [b]not yet seen in game[/b]: shop sales (the "sold" toast hook), the dungeon end (the dungeon door that marks a floor cleared; boss death as fallback), the HUD line on screen. Commodity trade is not wired yet.
+[list]
+[*]Payouts for shop sales and for finishing a dungeon are built from the game's own logic but not yet confirmed in play. Please report what you see.
+[*]Commodity trade does not count yet.
+[/list]
 
 [line]
 [size=5][b]Part of the SpaceBourne 2 realism set[/b][/size]
 
+This mod is part of the realism set, built around [url=https://www.nexusmods.com/spacebourne2/mods/4]Hardcore Tactical Realism[/url] as the core mod. HTR is not required: this mod works on its own or with any of the others. [b]Install them all at once[/b] with the [url=https://www.nexusmods.com/spacebourne2/mods/11]SpaceBourne 2 Realism installer[/url] ([url=https://github.com/hubertdungen/SpaceBourne2-Realism]GitHub[/url]): tick the mods you want, and it switches them on and keeps them up to date.
+
 [list]
-[*][b]Hardcore Tactical Realism[/b] — realistic on-foot ballistics and tactical NPC AI: [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/4]Nexus[/url] · [url=https://steamcommunity.com/app/1646850/discussions/0/573805072991123580]Steam discussion[/url]
-[*][b]SB2 HOTAS[/b]: [url=https://github.com/hubertdungen/SpaceBourne2-HOTAS]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/8]Nexus[/url]
-[*][b]Split Controls[/b]: [url=https://github.com/hubertdungen/SpaceBourne2-SplitControls]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/5]Nexus[/url]
-[*][b]Silent Ops[/b] — realistic stealth: [url=https://github.com/hubertdungen/SpaceBourne2-SilentOps]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/6]Nexus[/url]
-[*][b]Gear Without Levels[/b]: [url=https://github.com/hubertdungen/SpaceBourne2-GearWithoutLevels]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/7]Nexus[/url]
-[*][b]Faction Power[/b] (this mod)
-[*][b]Tactical Engineering[/b] (turrets) — coming
-[*][b]Tactical First Person[/b] — coming
+[*][b]Hardcore Tactical Realism (HTR)[/b]: the core: realistic ballistics, wounds and tactical AI. [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/4]Nexus[/url] · [url=https://steamcommunity.com/app/1646850/discussions/0/573805072991123580/]Steam[/url]
+[*][b]Split Controls[/b]: separate look inversion for ships and on foot. [url=https://github.com/hubertdungen/SpaceBourne2-SplitControls]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/5]Nexus[/url]
+[*][b]Silent Ops[/b]: realistic stealth, suppressors and silent takedowns. [url=https://github.com/hubertdungen/SpaceBourne2-SilentOps]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/6]Nexus[/url]
+[*][b]Gear Without Levels[/b]: any weapon or suit at any level, with small penalties. [url=https://github.com/hubertdungen/SpaceBourne2-GearWithoutLevels]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/7]Nexus[/url]
+[*][b]SB2 HOTAS[/b]: joystick, HOTAS, pedals, head tracking and triple screen. [url=https://github.com/hubertdungen/SpaceBourne2-HOTAS]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/8]Nexus[/url]
+[*][b]Faction Power[/b] [i](this mod)[/i]: dungeons, sales and missions earn your faction power. [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus[/url]
+[*][b]Tactical Engineering[/b]: deployable turrets and barricades that take time to set up. [url=https://github.com/hubertdungen/SpaceBourne2-TacticalEngineering]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/10]Nexus[/url]
+[*][b]Ammo Discipline[/b]: realistic ammo limits and scavenging. [url=https://github.com/hubertdungen/SpaceBourne2-AmmoDiscipline]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/12]Nexus[/url]
+[*][b]Ground Waypoints[/b]: planet waypoints on foot and on the hoverbike. [url=https://github.com/hubertdungen/SpaceBourne2-GroundWaypoints]GitHub[/url] · [url=https://www.nexusmods.com/spacebourne2/mods/13]Nexus[/url]
 [/list]
 
-One installer for the whole set is planned.
+Coming soon: Tactical First Person, Get Out of the Way.
 
 [line]
 [size=5][b]License[/b][/size]
