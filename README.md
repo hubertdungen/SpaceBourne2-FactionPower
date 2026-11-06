@@ -106,8 +106,6 @@ the HUD line on screen. Commodity trade is not wired yet.
 
 ## Known limits
 
-- Since 0.1.2 everything runs on the game thread, from the game's own ticks: the mod uses no UE4SS
-  background loops (LoopAsync), which could crash UE4SS 3.0.1 when several mods used them at once.
 - Payouts for shop sales and for finishing a dungeon are built from the game's own logic but not yet confirmed in play. Please report what you see.
 - Commodity trade does not count yet.
 
