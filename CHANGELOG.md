@@ -6,7 +6,7 @@
   play). Background loops (LoopAsync) run on their own threads without UE4SS's lock, and two mods
   calling ExecuteInGameThread from there at the same moment broke a map UE4SS shares between all
   mods. The once-a-second work (hooks, cleanup, cleared dungeons, the ledger) now runs on the game
-  thread, from the player's and the ships' own ticks (new `fp\gametick.lua`, the same file in
+  thread, from the HUD's own drawing (new `fp\gametick.lua`, the same file in
   every mod of the set). The crash is gone only once every mod of the set has this change.
 
 ## 0.1.1 — 2026-10-31

@@ -1,5 +1,5 @@
 --[[
-  gametick.lua 1.0 - timed work on the game thread, without LoopAsync / ExecuteWithDelay.
+  gametick.lua 1.1 - timed work on the game thread, without LoopAsync / ExecuteWithDelay.
   One source for every SB2 Realism mod (side-session-notes\...\gametick.lua); copy it unchanged.
 
   Why: UE4SS 3.0.1 runs LoopAsync / ExecuteWithDelay / ExecuteAsync callbacks on each mod's own
@@ -15,13 +15,19 @@
     GT.every(1.0, fn)       -- fn(now) every second, first at the next pump; return true to stop
     GT.after(2.1, fn)       -- fn(now) once, 2.1 s from now
     GT.pump()               -- call from game-thread hooks (a Blueprint ReceiveTick is best)
-    GT.drive(path)          -- a Blueprint function that pumps (e.g. a ReceiveTick); hooked from
+    GT.drive(GT.HUD_TICK)   -- the usual driver: once per frame, on foot and in ships (measured)
+    GT.drive(path)          -- any Blueprint function that pumps (a ReceiveTick...); hooked from
                             -- the game thread as soon as its class is loaded (see GT.boot)
     GT.boot(fn)             -- hooks PlayerController:ClientRestart (every load / possession) to
                             -- run fn(now), hook pending drivers and pump. Call once, at load.
-  Where it pumps (SB2, measured 2026-11-06 with HTR):
-    on foot   GT.FOOT_TICK (ALS characters, ~80 calls/s)
-    in space  GT.SHIP_TICK only: no ALS character ticks in a ship (~117 calls/s)
+  Where it pumps (SB2, measured 2026-11-06 with HTR, calls per second = frames per second):
+    HUD_TICK  the player's HUD drawing (Q1Hud_C:ReceiveDrawHUD): one call per frame on foot and in
+              space, whatever the crowd. The driver to use unless the mod already has a tick hook.
+    FOOT_TICK ALS_Base_C:ReceiveTick: one call per frame, the player's, even with 20 shooters and
+              4 squad soldiers around (NPC classes run their own tick). Nothing in space.
+    SHIP_TICK every Q1_Master_Ship's tick: one call per frame per ship that uses it (1 in tests;
+              more in big space fights), so prefer HUD_TICK.
+    Cost: 8 extra empty hooks on FOOT_TICK changed nothing measurable (18.1 vs 18.0 ms a frame).
     main menu nothing: no ClientRestart, no map tick. Work for the main menu (or for paused
               screens, if the game pauses ticks there) needs one of the mod's own hooks on a
               widget function: call GT.pump() at the top of any hook callback, it costs nothing.
@@ -34,7 +40,8 @@
 
 local GT = { jobs = {}, drivers = {}, due = math.huge, last = -1e9, running = false, MIN_GAP = 0.005,
     -- SB2 game-thread ticks for GT.drive (every frame, for every such actor):
-    FOOT_TICK = "/Game/Locomotion/Blueprints/CharacterLogic/ALS_Base.ALS_Base_C:ReceiveTick", -- every ALS character
+    HUD_TICK  = "/Game/1Data/Q1Hud.Q1Hud_C:ReceiveDrawHUD",                                   -- the player's HUD, each frame
+    FOOT_TICK = "/Game/Locomotion/Blueprints/CharacterLogic/ALS_Base.ALS_Base_C:ReceiveTick", -- the player on foot
     SHIP_TICK = "/Game/1Data/SB2Ships/Q1_Master_Ship.Q1_Master_Ship_C:ReceiveTick",           -- every ship
     MAX_ERRORS = 25, log = function(msg) print("[gametick] " .. tostring(msg) .. "\n") end,
     stats = { pumps = 0, runs = 0, time = 0, worst = 0, by = {} } }
