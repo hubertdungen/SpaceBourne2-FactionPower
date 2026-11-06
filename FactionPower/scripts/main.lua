@@ -14,7 +14,7 @@
     fp/hooks.lua      safe lazy hook registration (copy of HTR's)
 ]]
 
-local VERSION = "0.1.1"
+local VERSION = "0.1.2"
 
 local U = require("fp.util")
 
@@ -75,6 +75,9 @@ local function saveState()
 end
 
 local H = require("fp.hooks")
+-- Timed work on the game thread (gametick.lua, the set's shared file). No LoopAsync (UE4SS crash).
+local GT = require("fp.gametick")
+GT.log = function(msg) U.warn(msg) end
 H.SLOW = cfg.Debug.SlowHookMs / 1000
 local G = require("fp.gamedefs")
 local M = require("fp.model")
@@ -227,26 +230,30 @@ local function debugCommand()
     if FP.debug then pcall(FP.debug, cmd) end
 end
 
-LoopAsync(1000, function()
-    ExecuteInGameThread(function()
-        pcall(debugCommand)
-        if not FP.on then return end
-        local ok, err = pcall(function()
-            H.poll(os.clock())
-            if cfg.Cleanup then cleanup() end
-            if #queue > 0 and os.clock() - queue[1].t > 5 then
-                local q = queue; queue = {}
-                for _, info in ipairs(q) do S.onDungeonCleared(info) end
-            end
-            if L.state then
-                ensureLedger() -- another character loaded? (the game instance is cached by now: cheap)
-                checkRollback(W.today(cfg))
-                L.flush(30)
-            end
-        end)
-        if not ok then U.warn("loop: " .. tostring(err)) end
+-- Once a second on the game thread, pumped by the player's and the ships' ticks (gametick.lua);
+-- started after each load or possession (ClientRestart). Until 0.1.1 this was LoopAsync +
+-- ExecuteInGameThread: from UE4SS's async thread that writes a map all mods share without a
+-- lock, and two mods at once crashed the game (UE4SS.dll+0x87c104).
+GT.drive(GT.FOOT_TICK, "foot")
+GT.drive(GT.SHIP_TICK, "ship")
+GT.boot()
+GT.every(1.0, function()
+    pcall(debugCommand)
+    if not FP.on then return end
+    local ok, err = pcall(function()
+        H.poll(os.clock())
+        if cfg.Cleanup then cleanup() end
+        if #queue > 0 and os.clock() - queue[1].t > 5 then
+            local q = queue; queue = {}
+            for _, info in ipairs(q) do S.onDungeonCleared(info) end
+        end
+        if L.state then
+            ensureLedger() -- another character loaded? (the game instance is cached by now: cheap)
+            checkRollback(W.today(cfg))
+            L.flush(30)
+        end
     end)
-    return false
+    if not ok then U.warn("loop: " .. tostring(err)) end
 end)
 
 -- Keys ----------------------------------------------------------------------

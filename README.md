@@ -7,7 +7,7 @@ operations, stations and houses — comes from your stations and a few story mis
 Contracts, dungeons and trade earn you nothing for it. **Faction Power** changes that, and makes
 the factions of the galaxy notice what you do where you do it.
 
-Version 0.1.1 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9) · UE4SS Lua mod · works alone or with
+Version 0.1.2 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9) · UE4SS Lua mod · works alone or with
 [Hardcore Tactical Realism](https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism).
 
 ## What it does
@@ -48,7 +48,7 @@ Version 0.1.1 · [Nexus Mods page](https://www.nexusmods.com/spacebourne2/mods/9
 
 ## Install
 
-1. Download `FactionPower-0.1.1.zip` from the
+1. Download `FactionPower-0.1.2.zip` from the
    [releases](https://github.com/hubertdungen/SpaceBourne2-FactionPower/releases).
 2. Extract it into the game folder (`...\steamapps\common\SpaceBourne 2\`). It adds
    `SB2\Binaries\Win64\Mods\FactionPower\` (the `enabled.txt` inside turns it on).
@@ -106,6 +106,8 @@ the HUD line on screen. Commodity trade is not wired yet.
 
 ## Known limits
 
+- Since 0.1.2 everything runs on the game thread, from the game's own ticks: the mod uses no UE4SS
+  background loops (LoopAsync), which could crash UE4SS 3.0.1 when several mods used them at once.
 - Payouts for shop sales and for finishing a dungeon are built from the game's own logic but not yet confirmed in play. Please report what you see.
 - Commodity trade does not count yet.
 

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.2 — 2026-11-06
+
+- **Fixed: a UE4SS crash with many mods** ("Fatal error" in UE4SS.dll, at the main menu or in
+  play). Background loops (LoopAsync) run on their own threads without UE4SS's lock, and two mods
+  calling ExecuteInGameThread from there at the same moment broke a map UE4SS shares between all
+  mods. The once-a-second work (hooks, cleanup, cleared dungeons, the ledger) now runs on the game
+  thread, from the player's and the ships' own ticks (new `fp\gametick.lua`, the same file in
+  every mod of the set). The crash is gone only once every mod of the set has this change.
+
 ## 0.1.1 — 2026-10-31
 
 - After loading a save, the mod follows the live game world (a previous world left in memory could

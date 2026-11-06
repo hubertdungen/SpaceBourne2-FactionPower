@@ -2,7 +2,7 @@
 
 In vanilla SpaceBourne 2 your faction's [b]Faction Power[/b] — the currency you spend on operations, stations and houses — comes from your stations and a few story missions. Contracts, dungeons and trade earn you nothing for it. [b]Faction Power[/b] changes that, and makes the factions of the galaxy notice what you do where you do it.
 
-Version 0.1.1 · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]Hardcore Tactical Realism[/url].
+Version 0.1.2 · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus Mods page[/url] · UE4SS Lua mod · works alone or with [url=https://github.com/hubertdungen/SpaceBourne2-HardcoreTacticalRealism]Hardcore Tactical Realism[/url].
 
 [line]
 [size=5][b]What it does[/b][/size]
@@ -32,7 +32,7 @@ Version 0.1.1 · [url=https://www.nexusmods.com/spacebourne2/mods/9]Nexus Mods p
 [size=5][b]Install[/b][/size]
 
 [list=1]
-[*]Download FactionPower-0.1.1.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower/releases]releases[/url].
+[*]Download FactionPower-0.1.2.zip from the [url=https://github.com/hubertdungen/SpaceBourne2-FactionPower/releases]releases[/url].
 [*]Extract it into the game folder (...\steamapps\common\SpaceBourne 2\). It adds SB2\Binaries\Win64\Mods\FactionPower\ (the enabled.txt inside turns it on).
 [*]Start the game: Faction Power is on. [b]Shift+F9[/b] switches it off or on (remembered between sessions); switching on shows your Power and the balance of the system you are in.
 [/list]
@@ -75,6 +75,7 @@ Edit Mods\FactionPower\scripts\config.lua (every line is optional):
 [size=5][b]Known limits[/b][/size]
 
 [list]
+[*]Since 0.1.2 everything runs on the game thread, from the game's own ticks: the mod uses no UE4SS background loops (LoopAsync), which could crash UE4SS 3.0.1 when several mods used them at once.
 [*]Payouts for shop sales and for finishing a dungeon are built from the game's own logic but not yet confirmed in play. Please report what you see.
 [*]Commodity trade does not count yet.
 [/list]
