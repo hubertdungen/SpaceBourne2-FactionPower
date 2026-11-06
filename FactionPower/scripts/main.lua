@@ -235,6 +235,7 @@ end
 -- ExecuteInGameThread: from UE4SS's async thread that writes a map all mods share without a
 -- lock, and two mods at once crashed the game (UE4SS.dll+0x87c104).
 GT.drive(GT.HUD_TICK, "hud") -- the player's HUD drawing: once per frame, on foot and in ships
+GT.drive(GT.FOOT_TICK, "foot") -- fallback when the HUD is hidden (the pump runs once per frame anyway)
 GT.boot()
 GT.every(1.0, function()
     pcall(debugCommand)
